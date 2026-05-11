@@ -21,6 +21,7 @@
             --gray: #64748b;
             --other: #cbd5e1;
         }
+        html { scroll-behavior: smooth; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -240,6 +241,52 @@
             font-size: 12px;
             color: var(--text-secondary);
             padding: 20px;
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .toc-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 32px;
+        }
+        .toc-section { margin-bottom: 8px; }
+        .toc-section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+        .toc-section-title.purple { color: var(--purple); }
+        .toc-link {
+            display: block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 3px 0 3px 12px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .toc-link:hover {
+            color: var(--blue);
+            border-left-color: var(--blue);
+            background: #f8fafc;
+        }
+        .toc-link.purple:hover {
+            color: var(--purple);
+            border-left-color: var(--purple);
         }
 
         @media (max-width: 768px) {
@@ -534,6 +581,28 @@
         <div class="main-hero">
             <h1 class="main-hero-title">行业行情及发展趋势报告 - 2026年3月</h1>
         </div>
+
+        <!-- 目录 -->
+        <div class="toc">
+            <div class="toc-title"> 报告目录</div>
+            <div class="toc-grid">
+                <div class="toc-section">
+                    <div class="toc-section-title">第一部分：快递行业月度数据报告（2026年3月）</div>
+                    <a class="toc-link" href="#part01">PART 01 · 行业总览：增速换挡，价盘修复</a>
+                    <a class="toc-link" href="#data-section">DATA · 2026年3月快递公司经营数据</a>
+                    <a class="toc-link" href="#part02">PART 02 · 竞争格局：产能周期主导分化</a>
+                    <a class="toc-link" href="#part03">PART 03 · 价格分析：三重共振驱动价盘修复</a>
+                    <a class="toc-link" href="#part04">PART 04 · 战略观察：从同质化价格战到差异化价值战</a>
+                    <a class="toc-link" href="#part05">PART 05 · 展望与风险提示</a>
+                </div>
+                <div class="toc-section">
+                    <div class="toc-section-title purple">第二部分：国内快递行业发展趋势（2020-2025）</div>
+                    <a class="toc-link purple" href="#annual-layer1">第一层 · 各快递公司近年业务趋势</a>
+                    <a class="toc-link purple" href="#annual-layer2">第二层 · 各快递公司2025年业务状况</a>
+                    <a class="toc-link purple" href="#annual-conclusion">第二层 · 核心结论与投资启示</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 第一部分：月度数据报告 -->
@@ -601,7 +670,7 @@
     </div>
 
     <!-- PART 01 行业总览 -->
-    <div class="section">
+    <div class="section" id="part01">
         <div class="ppt-header">
             <div class="ppt-tag">PART 01</div>
             <div class="ppt-title">行业总览：增速换挡，价盘修复</div>
@@ -630,7 +699,7 @@
     </div>
 
     <!-- DATA 经营数据 -->
-    <div class="section">
+    <div class="section" id="data-section">
         <div class="ppt-header">
             <div class="ppt-tag">DATA</div>
             <div class="ppt-title">2026年3月快递公司经营数据</div>
@@ -724,7 +793,7 @@
     </div>
 
     <!-- PART 02 竞争格局 -->
-    <div class="section">
+    <div class="section" id="part02">
         <div class="ppt-header">
             <div class="ppt-tag">PART 02</div>
             <div class="ppt-title">竞争格局：产能周期主导分化</div>
@@ -777,7 +846,7 @@
     </div>
 
     <!-- PART 03 价格分析 -->
-    <div class="section">
+    <div class="section" id="part03">
         <div class="ppt-header">
             <div class="ppt-tag">PART 03</div>
             <div class="ppt-title">价格分析：三重共振驱动价盘修复</div>
@@ -813,7 +882,7 @@
     </div>
 
     <!-- PART 04 战略观察 -->
-    <div class="section">
+    <div class="section" id="part04">
         <div class="ppt-header">
             <div class="ppt-tag">PART 04</div>
             <div class="ppt-title">战略观察：从同质化价格战到差异化价值战</div>
@@ -851,7 +920,7 @@
     </div>
 
     <!-- PART 05 展望 -->
-    <div class="section">
+    <div class="section" id="part05">
         <div class="ppt-header">
             <div class="ppt-tag">PART 05</div>
             <div class="ppt-title">展望与风险提示</div>
@@ -898,7 +967,7 @@
             </p>
         </div>
         <!-- 第一层：件量规模与市占率趋势 -->
-        <div class="annual-section">
+        <div class="annual-section" id="annual-layer1">
             <div class="section-header">
                 <div class="section-tag">第一层：各快递公司近年业务趋势</div>
                 <div class="section-title">件量规模与市占率趋势</div>
@@ -1085,11 +1154,10 @@
         </div>
 
         <!-- 第二层：2025年核心指标横向对比 -->
-        <div class="annual-section">
+        <div class="annual-section" id="annual-layer2">
             <div class="section-header">
                 <div class="section-tag">第二层：各快递公司2025年业务状况</div>
                 <div class="section-title">2025年核心指标横向对比</div>
-                <div class="section-subtitle">六家公司在件量、收入、利润、增速、市占率、票均利润六个维度的绝对值对比</div>
             </div>
             <div class="card-grid-2">
                 <div class="card">
@@ -1317,7 +1385,7 @@
         </div>
 
         <!-- 核心结论与投资启示 -->
-        <div class="annual-section">
+        <div class="annual-section" id="annual-conclusion">
             <div class="section-header">
                 <div class="section-tag">第二层：各快递公司2025年业务状况</div>
                 <div class="section-title">核心结论与投资启示</div>
