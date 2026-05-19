@@ -295,7 +295,83 @@
             .company-grid { grid-template-columns: 1fr; }
             .risk-list { grid-template-columns: 1fr; }
             .hero-date { position: static; text-align: left; margin-top: 12px; }
+            .p3-flow-chart { flex-direction: column; }
+            .p3-flow-arrow { display: none; }
+            .p3-adv-grid { grid-template-columns: 1fr; }
+            .p3-risk-grid { grid-template-columns: 1fr; }
+            .p3-scenario-grid { grid-template-columns: 1fr; }
+            .p3-cost-comparison { grid-template-columns: 1fr; }
         }
+
+/* ===== 第三部分：无人配送车方案样式 ===== */
+        .p3-flow-chart {
+            display: flex; align-items: stretch; gap: 0; overflow-x: auto; padding: 20px 0;
+        }
+        .p3-flow-step { flex: 1; min-width: 160px; position: relative; text-align: center; }
+        .p3-flow-step-inner {
+            background: #fff; border: 2px solid var(--blue); border-radius: 12px;
+            padding: 18px 14px; margin: 0 6px; height: 100%;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+        }
+        .p3-flow-num {
+            width: 26px; height: 26px; background: var(--blue); color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 700;
+        }
+        .p3-flow-title { font-size: 13px; font-weight: 700; color: var(--text); }
+        .p3-flow-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+        .p3-flow-arrow {
+            position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+            color: var(--blue); font-size: 18px; z-index: 1;
+        }
+        .p3-insight-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+        .p3-insight-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+        .insight-card.purple { border-left-color: var(--purple); }
+        .insight-card.green { border-left-color: #16a34a; }
+        .insight-card.orange { border-left-color: var(--orange); }
+        .p3-scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 16px 0; }
+        .p3-scenario-card {
+            background: #fff; border-radius: 12px; padding: 22px;
+            border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .p3-scenario-card .badge {
+            display: inline-block; padding: 3px 10px; border-radius: 4px;
+            font-size: 12px; font-weight: 600; margin-bottom: 10px;
+        }
+        .p3-scenario-card .badge.blue { background: #eff6ff; color: #2563eb; }
+        .p3-scenario-card .badge.purple { background: #f5f3ff; color: #7c3aed; }
+        .p3-scenario-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+        .p3-scenario-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+        .p3-scenario-card ul { list-style: none; padding: 0; }
+        .p3-scenario-card ul li { font-size: 13px; color: var(--text-secondary); padding: 3px 0 3px 16px; position: relative; }
+        .p3-scenario-card ul li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+        .p3-adv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0; }
+        .p3-adv-card {
+            background: #f0fdf4; border-radius: 10px; padding: 18px; border-top: 3px solid #16a34a;
+        }
+        .p3-adv-card .icon { font-size: 22px; margin-bottom: 6px; }
+        .p3-adv-card .title { font-size: 14px; font-weight: 700; color: #166534; margin-bottom: 6px; }
+        .p3-adv-card .desc { font-size: 13px; color: #15803d; line-height: 1.6; }
+        .p3-risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 16px 0; }
+        .p3-risk-card {
+            background: #fef2f2; border-radius: 10px; padding: 18px; border-top: 3px solid var(--red);
+        }
+        .p3-risk-card .icon { font-size: 22px; margin-bottom: 6px; }
+        .p3-risk-card .title { font-size: 14px; font-weight: 700; color: #991b1b; margin-bottom: 6px; }
+        .p3-risk-card .desc { font-size: 13px; color: #b91c1c; line-height: 1.6; }
+        .p3-cost-comparison { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0; }
+        .p3-cost-card { border-radius: 12px; padding: 20px; text-align: center; border: 1px solid var(--border); }
+        .p3-cost-card.current { background: #fef2f2; border-color: #fecaca; }
+        .p3-cost-card.proposed { background: #f0fdf4; border-color: #bbf7d0; }
+        .p3-cost-card.hybrid { background: #eff6ff; border-color: #bfdbfe; }
+        .p3-cost-card .mode { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+        .p3-cost-card .price { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+        .p3-cost-card .unit { font-size: 12px; color: var(--text-secondary); }
+        .p3-spec-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+        .p3-spec-table th { background: #f8fafc; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); font-weight: 600; color: var(--text-secondary); }
+        .p3-spec-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+        .p3-spec-table tr:hover td { background: #f8fafc; }
+        .p3-spec-table .highlight { color: var(--blue); font-weight: 600; }
 
 /* ===== 近年行业分析报告样式 ===== */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -600,6 +676,16 @@
                     <a class="toc-link purple" href="#annual-layer1">第一层 · 各快递公司近年业务趋势</a>
                     <a class="toc-link purple" href="#annual-layer2">第二层 · 各快递公司2025年业务状况</a>
                     <a class="toc-link purple" href="#annual-conclusion">核心结论与投资启示</a>
+                </div>
+                <div class="toc-section">
+                    <div class="toc-section-title" style="color:#16a34a;">第三部分：无人配送车送货上门方案</div>
+                    <a class="toc-link" href="#p3-overview">方案概述与核心思路</a>
+                    <a class="toc-link" href="#p3-product">产品能力概览</a>
+                    <a class="toc-link" href="#p3-flow">操作流程设计</a>
+                    <a class="toc-link" href="#p3-scenario">场景落地方案</a>
+                    <a class="toc-link" href="#p3-advantage">方案优势分析</a>
+                    <a class="toc-link" href="#p3-risk">潜在问题与风险</a>
+                    <a class="toc-link" href="#p3-cost">成本效益与商业化落地案例</a>
                 </div>
             </div>
         </div>
@@ -1917,5 +2003,252 @@ new Chart(document.getElementById('priceChangeChart'), {
             }
         });
     </script>
+
+    <!-- ===== 第三部分：无人配送车送货上门方案 ===== -->
+    <div style="background:#f1f5f9;padding:24px 0;">
+    <div class="container">
+
+        <!-- 第三部分标题 -->
+        <div style="height:3px;background:linear-gradient(90deg,transparent,#94a3b8,transparent);margin:0 0 32px;"></div>
+        <div class="annual-hero" style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a5f 100%);">
+            <h2 class="annual-hero-title">无人配送车 × 快递终端网点</h2>
+            <p class="annual-hero-sub">高档小区 & 写字楼场景送货上门解决方案分析</p>
+        </div>
+
+        <!-- 方案概述 -->
+        <div class="section" id="p3-overview">
+            <div class="ppt-header">
+                <div class="ppt-tag">方案概述</div>
+                <div class="ppt-title">一、方案概述与核心思路</div>
+            </div>
+            <div class="ppt-conclusion">
+                核心思路：将无人配送车与快递末端网点/驿站结合，实现高档小区、写字楼等场景的全自动送货上门，降低人力成本、提升配送时效与用户体验。
+            </div>
+            <div class="insight-row">
+                <div class="insight-card">
+                    <div class="p3-insight-title">现状痛点</div>
+                    <div class="p3-insight-text">
+                        高档小区门禁严格、写字楼安保限制快递员进入；快递员上门配送人力成本高、效率低；消费者对"送货上门"需求强烈但末端网点难以满足；驿站取件体验差、投诉率高。
+                    </div>
+                </div>
+                <div class="insight-card purple">
+                    <div class="p3-insight-title">解决方案</div>
+                    <div class="p3-insight-text">
+                        在快递终端网点/驿站部署无人配送车，由驿站工作人员装载快递后，无人车自主规划路线进入小区/写字楼，送达指定楼栋/楼层，实现"驿站→家门口"的最后100米自动配送。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品能力 -->
+        <div class="section" id="p3-product">
+            <div class="ppt-header">
+                <div class="ppt-tag">产品能力</div>
+                <div class="ppt-title">二、产品能力概览</div>
+            </div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">最大载重</div></div>
+                    <div class="kpi-value">80<span class="kpi-unit">kg</span></div>
+                    <div class="kpi-desc">满足多件快递同时配送</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">续航时间</div></div>
+                    <div class="kpi-value">5<span class="kpi-unit">小时</span></div>
+                    <div class="kpi-desc">支持全天持续作业</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">货仓容量</div></div>
+                    <div class="kpi-value">72<span class="kpi-unit">L</span></div>
+                    <div class="kpi-desc">7格独立储物仓</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">适应场景</div></div>
+                    <div class="kpi-value" style="font-size:22px;">室内外通行</div>
+                    <div class="kpi-desc">越障30mm / 通行门宽70cm+</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">防护等级</div></div>
+                    <div class="kpi-value">IP54</div>
+                    <div class="kpi-desc">防尘防水，适应全天候</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-top"><div class="kpi-label">运行模式</div></div>
+                    <div class="kpi-value" style="font-size:22px;">7×24h</div>
+                    <div class="kpi-desc">全自主运行，自动充电</div>
+                </div>
+            </div>
+            <table class="p3-spec-table">
+                <tr><th>AI核心能力</th><th>说明</th><th>业务价值</th></tr>
+                <tr><td class="highlight">精准导航避障</td><td>多传感器融合，厘米级定位，自主绕障</td><td>适应复杂小区/楼宇环境</td></tr>
+                <tr><td class="highlight">多户并行配送</td><td>7格独立仓，一次装载可服务7个用户</td><td>大幅提升配送效率</td></tr>
+                <tr><td class="highlight">智能预约存放</td><td>用户可预约配送时间，无人车智能调度</td><td>满足高档小区个性化需求</td></tr>
+                <tr><td class="highlight">自主充电归位</td><td>电量不足时自动返回充电桩</td><td>无需人工维护，持续运行</td></tr>
+                <tr><td class="highlight">Express双VCU架构</td><td>Safety-MCU达到ASIL-D级别安全标准</td><td>保障人身与财产安全</td></tr>
+            </table>
+        </div>
+
+        <!-- 操作流程 -->
+        <div class="section" id="p3-flow">
+            <div class="ppt-header">
+                <div class="ppt-tag">操作流程</div>
+                <div class="ppt-title">三、操作流程设计</div>
+            </div>
+            <div class="ppt-conclusion">
+                以快递终端网点/驿站为起点，无人配送车完成"装载→配送→签收→返回"的全闭环自动化流程
+            </div>
+            <div class="p3-flow-chart">
+                <div class="p3-flow-step">
+                    <div class="p3-flow-step-inner"><div class="p3-flow-num">1</div><div class="p3-flow-title">快递到站分拣</div><div class="p3-flow-desc">快递到达网点/驿站后，按配送片区和楼栋进行分拣归类</div></div>
+                    <div class="p3-flow-arrow">→</div>
+                </div>
+                <div class="p3-flow-step">
+                    <div class="p3-flow-step-inner"><div class="p3-flow-num">2</div><div class="p3-flow-title">驿站员工装车</div><div class="p3-flow-desc">工作人员将分拣好的快递装入无人车的独立仓，系统创建配送任务</div></div>
+                    <div class="p3-flow-arrow">→</div>
+                </div>
+                <div class="p3-flow-step">
+                    <div class="p3-flow-step-inner"><div class="p3-flow-num">3</div><div class="p3-flow-title">自主路径配送</div><div class="p3-flow-desc">无人车自主规划最优路线，进入小区/写字楼，逐栋/逐层配送</div></div>
+                    <div class="p3-flow-arrow">→</div>
+                </div>
+                <div class="p3-flow-step">
+                    <div class="p3-flow-step-inner"><div class="p3-flow-num">4</div><div class="p3-flow-title">用户取件签收</div><div class="p3-flow-desc">到达楼栋后通知用户，用户通过APP/短信验证码开仓取件</div></div>
+                    <div class="p3-flow-arrow">→</div>
+                </div>
+                <div class="p3-flow-step">
+                    <div class="p3-flow-step-inner"><div class="p3-flow-num">5</div><div class="p3-flow-title">自动归位充电</div><div class="p3-flow-desc">配送完成后自动返回驿站，低电量时自主对接充电桩</div></div>
+                </div>
+            </div>
+            <div style="margin-top:24px;">
+                <h4 style="font-size:15px;font-weight:700;margin-bottom:14px;color:var(--text-secondary);">关键环节详解</h4>
+                <div class="insight-row">
+                    <div class="insight-card">
+                        <div class="p3-insight-title">环节一：智能分拣与装载</div>
+                        <div class="p3-insight-text">驿站接收快递后，系统根据收件地址自动归类到对应片区。工作人员按系统提示将快递放入对应仓格，扫码绑定仓位与收件人。支持一次装载7件快递，覆盖同一栋楼或相邻楼栋的多位用户。</div>
+                    </div>
+                    <div class="insight-card purple">
+                        <div class="p3-insight-title">环节二：门禁通行与导航</div>
+                        <div class="p3-insight-text">无人车通过物业预授权的电子通行证自动通过小区门禁/写字楼闸机。支持电梯联动（对接楼宇物联系统自动呼叫电梯），在楼内精准导航到用户门口或指定取件点。</div>
+                    </div>
+                </div>
+                <div class="insight-row">
+                    <div class="insight-card green">
+                        <div class="p3-insight-title">环节三：通知与签收</div>
+                        <div class="p3-insight-text">无人车到达后，系统自动推送取件通知（短信/APP/微信小程序）。用户输入验证码或刷脸开仓取件。支持代收场景：用户可远程授权他人取件。拍照存证自动上传，确保配送可追溯。</div>
+                    </div>
+                    <div class="insight-card orange">
+                        <div class="p3-insight-title">环节四：异常处理机制</div>
+                        <div class="p3-insight-text">用户未取件：等待设定时间后，快递自动带回驿站暂存，系统再次通知用户。路径受阻：AI实时避障，遇到无法通过的障碍自动切换备选路线。设备异常：远程监控中心实时监控，异常自动告警。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 场景落地 -->
+        <div class="section" id="p3-scenario">
+            <div class="ppt-header">
+                <div class="ppt-tag">场景落地</div>
+                <div class="ppt-title">四、场景落地方案</div>
+            </div>
+            <div class="p3-scenario-grid">
+                <div class="p3-scenario-card">
+                    <span class="badge blue">场景一</span>
+                    <h4>高档封闭小区</h4>
+                    <p><strong>特征：</strong>门禁严格、快递员不允许进入、住户对服务品质要求高</p>
+                    <ul>
+                        <li>与物业合作，获取无人车通行权限（电子道闸授权）</li>
+                        <li>在小区入口处或驿站部署无人车充电/停靠站</li>
+                        <li>按楼栋编组配送：一趟覆盖1-2栋楼的住户</li>
+                        <li>配送至单元门口/大堂前台，用户下楼取件</li>
+                        <li>可拓展：对接电梯系统实现送达楼层/家门口</li>
+                    </ul>
+                </div>
+                <div class="p3-scenario-card">
+                    <span class="badge purple">场景二</span>
+                    <h4>商务写字楼</h4>
+                    <p><strong>特征：</strong>安保限制快递员上楼、前台代收堆积严重、上班族取件不便</p>
+                    <ul>
+                        <li>在写字楼地下一层/一层部署无人车接驳点</li>
+                        <li>对接楼宇电梯物联系统，无人车自主乘梯到达目标楼层</li>
+                        <li>到达后在楼层公共区域等候，通知收件人取件</li>
+                        <li>支持定时配送：集中在午休、下班前等时段批量上楼</li>
+                        <li>替代前台堆积模式，减少丢件纠纷</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ppt-conclusion" style="margin-top:16px;">
+                两种场景的共同点：传统快递员难以进入 + 用户对"送货上门"有强诉求 + 物业/安保方有动力引入规范化配送方案以提升管理水平
+            </div>
+        </div>
+
+        <!-- 优势分析 -->
+        <div class="section" id="p3-advantage">
+            <div class="ppt-header">
+                <div class="ppt-tag">优势分析</div>
+                <div class="ppt-title">五、方案优势分析</div>
+            </div>
+            <div class="p3-adv-grid">
+                <div class="p3-adv-card"><div class="icon">💰</div><div class="title">降低末端人力成本</div><div class="desc">一台无人配送车可替代部分人力配送工作，尤其在人工送货上门成本高达1元/件的场景下，无人车边际成本可降至0.3-0.5元/件，长期来看可节省50%-80%末端配送人力成本。</div></div>
+                <div class="p3-adv-card"><div class="icon">⚡</div><div class="title">提升配送时效与确定性</div><div class="desc">7×24h不间断运行，不受天气、疲劳等人为因素影响。用户可预约配送时间，配送时效从"等快递员有空"变为"按需定时送达"，大幅提升用户体验和满意度。</div></div>
+                <div class="p3-adv-card"><div class="icon">🏢</div><div class="title">突破门禁场景限制</div><div class="desc">通过与物业/楼宇管理方合作预授权，无人车可合规进入快递员无法到达的区域。统一规范的机器人配送也更容易获得物业方认可（无安全隐患、不影响住户）。</div></div>
+                <div class="p3-adv-card"><div class="icon">📊</div><div class="title">数据化运营管理</div><div class="desc">全流程数字化记录：装载扫码、路径轨迹、取件签收、异常事件均有数据留痕。为网点运营提供精细化数据支撑，减少丢件纠纷，降低投诉率。</div></div>
+                <div class="p3-adv-card"><div class="icon">🎯</div><div class="title">提升用户满意度</div><div class="desc">真正实现"送货到门口"，解决消费者对驿站自取的不满。对高档小区住户而言，无人车配送还具有科技感和尊享感，有助于提升快递品牌形象。</div></div>
+                <div class="p3-adv-card"><div class="icon">🔄</div><div class="title">与现有网点体系无缝衔接</div><div class="desc">无需改变现有快递网络架构，仅在"驿站→用户"这最后100米增加无人车环节。驿站工作人员从"通知取件"变为"装车发送"，转型成本低。</div></div>
+            </div>
+        </div>
+
+        <!-- 潜在问题与风险 -->
+        <div class="section" id="p3-risk">
+            <div class="ppt-header">
+                <div class="ppt-tag">风险分析</div>
+                <div class="ppt-title">六、潜在问题与风险</div>
+            </div>
+            <div class="p3-risk-grid">
+                <div class="p3-risk-card"><div class="icon">🚧</div><div class="title">物业合作与通行权获取</div><div class="desc">高档小区/写字楼物业对新设备进入通常态度谨慎。需解决：道闸/门禁系统对接、通行权限审批流程、安全责任界定（如碰撞人/物的赔偿）、停靠充电位占用公共空间等问题。建议采用"先试点后推广"策略。</div></div>
+                <div class="p3-risk-card"><div class="icon">🛗</div><div class="title">电梯与楼内通行能力</div><div class="desc">写字楼场景依赖电梯联动，需楼宇物联系统支持无人车呼梯。老旧电梯可能无法改造。高峰期电梯资源紧张，无人车候梯时间不可控。建议初期先做"楼下到达通知"模式，逐步升级为"到门口"。</div></div>
+                <div class="p3-risk-card"><div class="icon">🌧️</div><div class="title">复杂环境适应性</div><div class="desc">虽然无人车具备IP54防护和30mm越障能力，但面对：暴雨积水路面、冰雪覆盖路面、施工围挡变化、大量行人/车辆混行等极端情况，可能需要人工干预。需要建立完善的远程监控和应急接管机制。</div></div>
+                <div class="p3-risk-card"><div class="icon">📦</div><div class="title">载重与仓位限制</div><div class="desc">72L/80kg的容量限制意味着：大件快递（如家电、家具）无法配送；日均单量大的楼栋可能需要多趟往返。7格仓位每次最多服务7户，高层写字楼一层可能有数十家公司，需要合理的批次调度策略。</div></div>
+                <div class="p3-risk-card"><div class="icon">🔒</div><div class="title">安全与责任风险</div><div class="desc">快递在无人车运输途中的丢失/损坏责任归属；无人车在小区内行驶的交通安全责任；用户取件时的身份验证可靠性（防止冒领）；设备被恶意破坏或盗窃的风险防范。需要明确各方责任划分和保险覆盖。</div></div>
+                <div class="p3-risk-card"><div class="icon">💻</div><div class="title">技术成熟度与维护</div><div class="desc">AI导航在室内复杂环境（地下车库、狭窄走廊）的可靠性有待验证；设备日常维护保养需专业人员；软件系统的稳定性和网络依赖（断网时的应急方案）；初期可能频繁出现的"学习期"问题。</div></div>
+            </div>
+        </div>
+
+        <!-- 成本效益与商业化落地案例 -->
+        <div class="section" id="p3-cost">
+            <div class="ppt-header">
+                <div class="ppt-tag">成本与案例</div>
+                <div class="ppt-title">七、成本效益与商业化落地案例</div>
+            </div>
+            <div class="ppt-conclusion">
+                根据方案资料，单台无人配送车在满负荷运行下可覆盖约40户/天的配送量，单件配送边际成本约0.3-0.5元
+            </div>
+            <div class="p3-cost-comparison">
+                <div class="p3-cost-card current">
+                    <div class="mode">传统人工上门</div>
+                    <div class="price" style="color:#dc2626;">1</div>
+                    <div class="unit">元/件</div>
+                    <div style="font-size:12px;color:#991b1b;margin-top:8px;">人力成本持续上涨</div>
+                </div>
+                <div class="p3-cost-card proposed">
+                    <div class="mode">无人车配送</div>
+                    <div class="price" style="color:#16a34a;">0.3-0.5</div>
+                    <div class="unit">元/件（满载运行）</div>
+                    <div style="font-size:12px;color:#166534;margin-top:8px;">边际成本递减</div>
+                </div>
+                <div class="p3-cost-card hybrid">
+                    <div class="mode">混合模式（建议）</div>
+                    <div class="price" style="color:#2563eb;">0.6-0.8</div>
+                    <div class="unit">元/件</div>
+                    <div style="font-size:12px;color:#1e40af;margin-top:8px;">人机协同，初期最优</div>
+                </div>
+            </div>
+            <div class="ppt-conclusion" style="margin-top:20px;">
+                已与兔喜驿站合作灰度测试，并在温州、江苏、成都等多个小区实现落地配送
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- ===== 第三部分结束 ===== -->
+
 </body>
 </html>
